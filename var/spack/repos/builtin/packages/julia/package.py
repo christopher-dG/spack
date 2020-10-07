@@ -63,6 +63,17 @@ class Julia(Package):
     depends_on('openssl@:1.0', when='@:0.5.0')
     depends_on('mkl', when='+mkl')
 
+    depends_on('curl')
+    depends_on('gmp')
+    depends_on('libgit2')
+    depends_on('libssh2')
+    depends_on('mbedtls')
+    depends_on('mpfr')
+    depends_on('openblas')
+    depends_on('pcre')
+    depends_on('suite-sparse')
+    depends_on('utf8proc')
+
     # Run-time dependencies:
     # depends_on('arpack')
     # depends_on('fftw +float')
@@ -138,7 +149,18 @@ class Julia(Package):
         # 'USE_SYSTEM_MPFR=1',
         # 'USE_SYSTEM_PCRE=1',
         options = [
-            'prefix={0}'.format(prefix)
+            'prefix={0}'.format(prefix),
+            'USE_SYSTEM_CURL=1'
+            'USE_SYSTEM_GMP=1',
+            'USE_SYSTEM_LIBGIT=1',
+            'USE_SYSTEM_LIBSSH=1'
+            'USE_SYSTEM_MBEDTLS=1',
+            'USE_SYSTEM_MPFR=1',
+            'USE_SYSTEM_BLAS=1',
+            'USE_SYSTEM_LAPACK=1',
+            'USE_SYSTEM_PCRE=1',
+            'USE_SYSTEM_SUITESPARSE=1',
+            'USE_SYSTEM_UTF8PROC=1',
         ]
         if '@:0.5.0' in spec:
             options += [
